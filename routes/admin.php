@@ -7,8 +7,16 @@ Route::group(['prefix'  =>  'admin'], function () {
     Route::post('login', 'App\Http\Controllers\Admin\LoginController@login')->name('admin.login.post');
     Route::get('logout', 'App\Http\Controllers\Admin\LoginController@logout')->name('admin.logout');
 
-    Route::get('/', function () {
-        return view('admin.dashboard.index');
+    Route::group(['middleware' => ['auth:admin']], function() {
+        Route::get('/', function () {
+            return view('admin.dashboard.index');
+        })->name('admin.dashboard');
+
+        
+
     });
+
+
+
 
 });
