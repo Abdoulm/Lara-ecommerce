@@ -1,5 +1,5 @@
 <?php
-
+require 'Admin.php';
 use Illuminate\Support\Facades\Route;
 
 /*
